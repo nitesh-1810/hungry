@@ -1,7 +1,12 @@
 import "./App.css";
+import AppLayout from "./pages/AppLayout";
 
 function App() {
-  return <div className="App">Hungry</div>;
+  return (
+    <div>
+      <AppLayout />
+    </div>
+  );
 }
 
 export default App;
