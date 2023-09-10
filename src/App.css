@@ -13,6 +13,9 @@
 .nav-item > ul > li {
   padding: 10px;
 }
+.nav-item > ul > .Loginbutton {
+  width: 50px;
+}
 
 .logo {
   width: 160px;
@@ -34,4 +37,41 @@
 .restraunt-list {
   display: flex;
   flex-wrap: wrap;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-input {
+  height: 30px;
+  width: 220px;
+  border-radius: 8px;
+  margin-right: 5px;
+  padding-left: 7px;
+  border: none;
+  background-color: rgb(202, 200, 200);
+  color: white;
+  font-weight: bolder;
+}
+
+.search-btn {
+  height: 32px;
+  width: 75px;
+  border-radius: 8px;
+  border: none;
+  background-color: rgb(234, 146, 32);
+  color: white;
+  font-weight: bolder;
+}
+
+.search-input::placeholder {
+  color: white;
+}
+
+.search-input:focus {
+  outline: none;
+  border: none;
 }

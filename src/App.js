@@ -3,7 +3,7 @@ import AppLayout from "./pages/AppLayout";
 
 function App() {
   return (
-    <div>
+    <div className="app">
       <AppLayout />
     </div>
   );

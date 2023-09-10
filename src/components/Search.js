@@ -1,15 +1,14 @@
 import React, { useState } from "react";
-import { restrauntList } from "../config";
 
-const Search = ({ setRestaurantDetails }) => {
+const Search = ({ setRestaurantDetails, filterRestaurantList }) => {
   const [searchInput, setSearchInput] = useState("");
   const [toggle, setToggle] = useState(false);
 
   const filterRestaurant = (searchInput, restrauntList) => {
-    searchInput !== "" ? setToggle(!toggle) : setToggle(false);
+    searchInput !== "" ? setToggle(true) : setToggle(false);
     setRestaurantDetails(
-      restrauntList.filter((item) =>
-        item.info.name
+      restrauntList?.filter((item) =>
+        item?.info?.name
           .toLowerCase()
           .includes(searchInput.trim("").toLowerCase())
       )
@@ -27,7 +26,7 @@ const Search = ({ setRestaurantDetails }) => {
   return (
     <div className="search-container">
       <input
-        placeholder="Search"
+        placeholder="Search Restaurant....."
         type="text"
         className="search-input"
         value={searchInput}
@@ -36,7 +35,7 @@ const Search = ({ setRestaurantDetails }) => {
 
       <button
         className="search-btn"
-        onClick={() => filterRestaurant(searchInput, restrauntList)}
+        onClick={() => filterRestaurant(searchInput, filterRestaurantList)}
       >
         Search
       </button>
