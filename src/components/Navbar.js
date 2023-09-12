@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
-  const [loginToggle, setLoginToggle] = useState(true);
+  const [loginToggle, setLoginToggle] = useState(false);
 
   const toggleButton = () => setLoginToggle(!loginToggle);
 
@@ -21,7 +21,7 @@ const Navbar = () => {
           </li>
           <li>Cart</li>
           <li className="Loginbutton" onClick={toggleButton}>
-            {loginToggle ? "Login" : "Logout"}
+            <Link to="/authentication">{loginToggle ? "Login" : "Logout"}</Link>
           </li>
         </ul>
       </div>

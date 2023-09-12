@@ -24,11 +24,11 @@ const RestaurantMenu = () => {
     );
     const detail = await data.json();
     console.log(
-      detail.data.cards[2].groupedCard.cardGroupMap.REGULAR.cards[2].card.card.itemCards.map(
+      detail.data.cards[2].groupedCard.cardGroupMap.REGULAR.cards[2].card.card.itemCards?.map(
         (item) => item.card.info.name
       )
     );
-    setRestaurantInfo(detail.data.cards[0].card.card.info);
+    setRestaurantInfo(detail?.data?.cards[0]?.card?.card?.info);
     setRestaurantMenuItem(
       detail.data.cards[2].groupedCard.cardGroupMap.REGULAR.cards[2].card.card
         .itemCards
@@ -49,10 +49,12 @@ const RestaurantMenu = () => {
           {" "}
           Restaurant id : {id} - matches : {restaurantInfo.id}
         </h1>
-        <img
-          src={IMG_CDN_URL + restaurantInfo?.cloudinaryImageId}
-          alt="restaurantImg"
-        />
+        {restaurantInfo !== "" && (
+          <img
+            src={IMG_CDN_URL + restaurantInfo?.cloudinaryImageId}
+            alt="restaurantImg"
+          />
+        )}
         <h1>{restaurantInfo.name}</h1>
         <h2>{restaurantInfo.city}</h2>
         <h3>{restaurantInfo.city}</h3>

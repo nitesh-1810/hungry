@@ -6,6 +6,7 @@ import Error from "./components/Error";
 import Contact from "./components/Contact";
 import Body from "./components/Body";
 import RestaurantMenu from "./components/RestaurantMenu";
+import Authentication from "./components/Authentication";
 
 const appRouter = createBrowserRouter([
   {
@@ -21,6 +22,13 @@ const appRouter = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
+        // '/about/profile'
+        // children: [
+        //   {
+        //     path: "profile",
+        //     element: <Profile />, // to access this we need to use <Outlet/> in parent of it.
+        //   },
+        // ],
       },
       {
         path: "/contact",
@@ -29,6 +37,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/restaurant/:id",
         element: <RestaurantMenu />,
+      },
+      {
+        path: "/authentication",
+        element: <Authentication />,
       },
     ],
   },
