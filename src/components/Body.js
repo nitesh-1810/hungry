@@ -3,10 +3,13 @@ import RestrauntCard from "./RestrauntCard";
 import Search from "./Search";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnline from "../utils/useOnline";
 
 const Body = () => {
   const [restaurantDetails, setRestaurantDetails] = useState([]);
   const [filterRestaurantList, setfilterRestaurantList] = useState([]);
+
+  // Extract this from here and make custom hook and then off load it as custom hook.
 
   useEffect(() => {
     // error handling pending
@@ -35,6 +38,10 @@ const Body = () => {
   // if(!restaurantDetails) return null; // When API breaks and data not loaded
 
   // Show restaurant not found , when search restaurant not available
+
+  const isOnline = useOnline();
+
+  if (!isOnline) return <h1> Chech internet connection </h1>;
 
   return (
     <div className="body">

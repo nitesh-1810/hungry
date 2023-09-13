@@ -7,6 +7,11 @@ import Contact from "./components/Contact";
 import Body from "./components/Body";
 import RestaurantMenu from "./components/RestaurantMenu";
 import Authentication from "./components/Authentication";
+import { lazy, Suspense } from "react";
+import Shimmer from "./components/Shimmer";
+
+const Instamart = lazy(() => import("./components/Instamart")); // Do not keep it inside component. Always keep on top where we import all components
+console.log("What", Instamart);
 
 const appRouter = createBrowserRouter([
   {
@@ -33,6 +38,14 @@ const appRouter = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        path: "/instamart",
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <Instamart />
+          </Suspense>
+        ),
       },
       {
         path: "/restaurant/:id",

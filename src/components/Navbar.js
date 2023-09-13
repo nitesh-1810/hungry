@@ -19,6 +19,9 @@ const Navbar = () => {
           <li>
             <Link to="/contact">Contact</Link>
           </li>
+          <li>
+            <Link to="/instamart">Instamart</Link>
+          </li>
           <li>Cart</li>
           <li className="Loginbutton" onClick={toggleButton}>
             <Link to="/authentication">{loginToggle ? "Login" : "Logout"}</Link>

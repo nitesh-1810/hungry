@@ -3,7 +3,7 @@ import React, { useState } from "react";
 const Search = ({ setRestaurantDetails, filterRestaurantList }) => {
   const [searchInput, setSearchInput] = useState("");
   const [toggle, setToggle] = useState(false);
-
+  // Extract this from here and make custom hook and then off load it as custom hook.
   const filterRestaurant = (searchInput, restrauntList) => {
     searchInput !== "" ? setToggle(true) : setToggle(false);
     setRestaurantDetails(
