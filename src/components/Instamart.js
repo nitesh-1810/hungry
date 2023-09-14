@@ -45,7 +45,7 @@ const Instamart = () => {
         isVisible={isVisible.about}
         setVisible={() =>
           setVisible({
-            about: true,
+            about: !isVisible.about,
             team: false,
           })
         }
@@ -56,11 +56,12 @@ const Instamart = () => {
         isVisible={isVisible.team}
         setVisible={() =>
           setVisible({
-            about: !isVisible.about,
-            team: true,
+            about: false,
+            team: !isVisible.team,
           })
         }
       />
+      {console.log(isVisible)}
     </div>
   );
 };
