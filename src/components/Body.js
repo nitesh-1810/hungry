@@ -4,6 +4,7 @@ import Search from "./Search";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnline from "../utils/useOnline";
+import { FETCH_RESTAURANT_URL } from "../config";
 
 const Body = () => {
   const [restaurantDetails, setRestaurantDetails] = useState([]);
@@ -18,9 +19,7 @@ const Body = () => {
 
   const restrauntData = async () => {
     // error handling pending
-    const restraunt = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9154969&lng=77.6987092&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    );
+    const restraunt = await fetch(FETCH_RESTAURANT_URL);
     const data1 = await restraunt.json();
     console.log(
       data1?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
