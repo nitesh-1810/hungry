@@ -20,7 +20,6 @@ const Section = ({ title, description, isVisible, setVisible }) => {
           cursor: "pointer",
         }}
         onClick={() => {
-          console.log("executed", isVisible);
           setVisible();
         }}
       >
@@ -32,36 +31,27 @@ const Section = ({ title, description, isVisible, setVisible }) => {
 };
 
 const Instamart = () => {
-  const [isVisible, setVisible] = useState({
-    about: false,
-    team: false,
-  });
+  const [visibleSection, setVisibleSection] = useState("");
   return (
     <div>
       Instamart
       <Section
         title="About"
         description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus perspiciatis, aliquam sint amet quam provident, qui nobis animi commodi earum repudiandae tempore a veritatis deserunt iste, adipisci consectetur sed reprehenderit error optio officiis. Obcaecati quaerat molestiae, veritatis pariatur, rem quo, facere vitae ducimus beatae praesentium temporibus quasi corporis voluptatem nam magnam. "
-        isVisible={isVisible.about}
+        isVisible={visibleSection === "about"}
         setVisible={() =>
-          setVisible({
-            about: !isVisible.about,
-            team: false,
-          })
+          setVisibleSection(visibleSection === "about" ? "" : "about")
         }
       />
       <Section
         title="Team"
         description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus perspiciatis, aliquam sint amet quam provident, qui nobis animi commodi earum repudiandae tempore a veritatis deserunt iste, adipisci consectetur sed reprehenderit error optio officiis. Obcaecati quaerat molestiae, veritatis pariatur, rem quo, facere vitae ducimus beatae praesentium temporibus quasi corporis voluptatem nam magnam. Officiis porro, quisquam molestiae saepe quibusdam officia aliquid voluptatem vero rerum eligendi corrupti! "
-        isVisible={isVisible.team}
+        isVisible={visibleSection === "team"}
         setVisible={() =>
-          setVisible({
-            about: false,
-            team: !isVisible.team,
-          })
+          setVisibleSection(visibleSection === "team" ? "" : "team")
         }
       />
-      {console.log(isVisible)}
+      {console.log(visibleSection)}
     </div>
   );
 };
