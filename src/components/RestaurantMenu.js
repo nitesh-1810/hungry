@@ -30,6 +30,11 @@ const RestaurantMenu = () => {
         (item) => item.card.info.name
       )
     );
+    // console.log(
+    //   detail.data.cards[2].groupedCard.cardGroupMap.REGULAR.cards[2].card.card.itemCards?.map(
+    //     (item) => item.card.info
+    //   )
+    // );
     setRestaurantInfo(detail?.data?.cards[0]?.card?.card?.info);
     setRestaurantMenuItem(
       detail.data.cards[2].groupedCard.cardGroupMap.REGULAR.cards[2].card.card

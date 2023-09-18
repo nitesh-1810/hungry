@@ -10,7 +10,7 @@ const Navbar = () => {
   //useSelector is bridge b/w redux store and component
   // Using useSelector we subscribe the store
   const cartItems = useSelector((store) => store.cart.items);
-  console.log("navbar", cartItems);
+  console.log("console inside navbar file, cartItem : ", cartItems);
   return (
     <>
       <div className="nav-item">
