@@ -9,6 +9,9 @@ import RestaurantMenu from "./components/RestaurantMenu";
 import Authentication from "./components/Authentication";
 import { lazy, Suspense } from "react";
 import Shimmer from "./components/Shimmer";
+import { Provider } from "react-redux";
+import store from "./utils/store";
+import Cart from "./components/Cart";
 
 const Instamart = lazy(() => import("./components/Instamart")); // Do not keep it inside component. Always keep on top where we import all components
 console.log("What", Instamart);
@@ -55,15 +58,23 @@ const appRouter = createBrowserRouter([
         path: "/authentication",
         element: <Authentication />,
       },
+      {
+        path: "/cart",
+        element: <Cart />,
+      },
     ],
   },
 ]);
 
 function App() {
   return (
-    <div className="app">
-      <RouterProvider router={appRouter} />
-    </div>
+    // Provide my store to app
+    // store is need to be connect to our application. Because they are different from each other. We have to tell our application that this is our Redux store. So we need a provider to provide store to our application.
+    <Provider store={store}>
+      <div className="app">
+        <RouterProvider router={appRouter} />
+      </div>
+    </Provider>
   );
 }
 

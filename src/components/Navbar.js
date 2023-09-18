@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
@@ -6,6 +7,10 @@ const Navbar = () => {
 
   const toggleButton = () => setLoginToggle(!loginToggle);
 
+  //useSelector is bridge b/w redux store and component
+  // Using useSelector we subscribe the store
+  const cartItems = useSelector((store) => store.cart.items);
+  console.log("navbar", cartItems);
   return (
     <>
       <div className="nav-item">
@@ -22,7 +27,9 @@ const Navbar = () => {
           <li>
             <Link to="/instamart">Instamart</Link>
           </li>
-          <li>Cart</li>
+          <li>
+            <Link to="/cart">Cart- {cartItems.length} items</Link>
+          </li>
           <li className="Loginbutton" onClick={toggleButton}>
             <Link to="/authentication">{loginToggle ? "Login" : "Logout"}</Link>
           </li>
